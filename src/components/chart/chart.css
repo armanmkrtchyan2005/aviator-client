@@ -1,0 +1,225 @@
+.chart-container {
+    background: url("@/assets/rainbow.png") center/cover no-repeat;
+}
+
+.svg-container {
+    overflow: hidden;
+
+    transition: background 1s ease-in;
+}
+
+.svg-container[data-active="true"] {
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.4) 10%,
+        rgba(0, 0, 0, 0.6) 25%,
+        rgba(0, 0, 0, 0.75) 35%,
+        rgba(0, 0, 0, 0.95) 75%
+    );
+}
+
+.svg-container[data-active="false"] {
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.8) 10%,
+        rgba(0, 0, 0, 0.95) 75%
+    );
+}
+
+.sunrise {
+    object-fit: contain;
+}
+/* .svg-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+            ellipse at center,
+            rgba(0, 0, 0, 0.2) 25%,
+            rgba(0, 0, 0, 0.9) 70%
+        ),
+        blueviolet;
+    z-index: 100;
+} */
+
+.airplane {
+    /* perspective: 20px; */
+    /* perspective: 100px; */
+    /* aspect-ratio: 2.35;
+    height: 100%; */
+
+    transform-style: preserve-3d;
+    translate: 10px 200px;
+    rotate: -12deg;
+    /* transition: all 3s linear; */
+}
+
+.fly {
+    animation:
+        airplane 5s linear forwards,
+        fly 3s linear 5s infinite;
+}
+
+.fly-away {
+    animation: fly-away 1s linear forwards;
+}
+
+@keyframes fly-away {
+    to {
+        translate: 800px 0px;
+    }
+}
+
+.propeller {
+    transform-origin: center -50% center;
+
+    /* animation: propeller 1s linear infinite; */
+}
+
+.propeller-2 {
+    transform-origin: center center;
+
+    /* animation: rotate 1s linear infinite; */
+}
+
+@keyframes airplane {
+    0% {
+        translate: 10px 200px;
+    }
+    5% {
+        translate: 10px 200px;
+    }
+    10% {
+        translate: 26px 198px;
+    }
+    15% {
+        translate: 43px 196px;
+    }
+    20% {
+        translate: 59px 194px;
+    }
+    25% {
+        translate: 75px 191px;
+    }
+    30% {
+        translate: 92px 187px;
+    }
+    35% {
+        translate: 108px 183px;
+    }
+    40% {
+        translate: 124px 179px;
+    }
+    45% {
+        translate: 141px 173px;
+    }
+    50% {
+        translate: 157px 167px;
+    }
+    55% {
+        translate: 173px 159px;
+    }
+    60% {
+        translate: 189px 150px;
+    }
+    65% {
+        translate: 206px 139px;
+    }
+    70% {
+        translate: 222px 127px;
+    }
+    75% {
+        translate: 238px 112px;
+    }
+    80% {
+        translate: 255px 95px;
+    }
+    85% {
+        translate: 271px 75px;
+    }
+    90% {
+        translate: 287px 51px;
+    }
+    95% {
+        translate: 304px 22px;
+    }
+    100% {
+        translate: 320px -11px;
+    }
+}
+
+@keyframes fly {
+    0% {
+        translate: 320px -11px;
+    }
+    50% {
+        translate: 400px 60px;
+    }
+    100% {
+        translate: 320px -11px;
+    }
+}
+
+@keyframes flyout {
+    0% {
+        translate: "";
+    }
+
+    100% {
+        translate: 100% 100%;
+    }
+}
+
+@keyframes propeller {
+    0% {
+        transform: rotate3d(1, 0, 0, 0deg);
+    }
+    100% {
+        transform: rotate3d(1, 0, 0, 360deg);
+    }
+}
+
+#use-propeller {
+    animation: rotate 4.55s linear;
+    /* transform-origin: center -50% center; */
+}
+
+@keyframes rotate {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+
+.slider-bar {
+    fill: rgba(255, 255, 255, 0.8);
+    translate: -65px 40px;
+    /* width: 100%; */
+}
+
+.slider {
+    z-index: 1;
+    translate: -65px 40px;
+    /* height: 100%; */
+
+    animation: slider 4.55s linear forwards;
+}
+
+.use-slider {
+    transform: translate(-65px, 40px);
+}
+
+@keyframes slider {
+    from {
+        width: 130px;
+    }
+    to {
+        width: 0px;
+    }
+}
+
+/* #figure {
+    background-image: url("https://thumbs.dreamstime.com/b/вращение-синего-и-белого-солнцезащитного-круга-движение-фон-228680277.jpg");
+} */

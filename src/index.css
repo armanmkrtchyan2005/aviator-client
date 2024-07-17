@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: Nunito Sans;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.87);
+    background-color: black;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    min-height: 100dvh;
+    height: 100%;
+}
+
+body {
+    min-width: 340px;
+    min-height: 100dvh;
+    height: 100%;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 0.75rem;
+}
+
+button {
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+.content-wrapper {
+    /* height: 100%; */
+    width: min(768px, 100% - 2rem);
+
+    margin-inline: auto;
+}
+
+/* @media (max-width: 767px) {
+    .content-wrapper {
+        width: min(767px, 100% - 2rem);
+    }
+} */
+
+@media (max-width: 420px) {
+    .content-wrapper {
+        width: min(420px, 100% - 1rem);
+    }
+
+    html {
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    html::-webkit-scrollbar {
+        /* height: 0px;  */
+        display: none;
+    }
+}
+
+[role="dialog"] {
+    max-height: calc(100dvh - 1rem);
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+[role="dialog"]::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.custom-scrollbar {
+    overflow-y: auto;
+}
+/* .custom-scrollbar::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: greenyellow;
+    border-radius: 100rem;
+} */
+@property --var1 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #1b1c1d;
+}
+
+.scrollbar {
+    /* height: 100%; */
+    /* width: 100%; */
+    overflow-y: scroll;
+    /* scrollbar-width: thin; */
+    transition: --var1 0.5s;
+    scrollbar-gutter: stable;
+}
+
+@-moz-document url-prefix() {
+    .scrollbar {
+        scrollbar-width: thin;
+    }
+}
+
+@media screen and (hover: hover) {
+    .scrollbar:hover {
+        --var1: #aaa;
+        /* scrollbar-widtsh: thin; */
+    }
+
+    .scrollbar::-webkit-scrollbar {
+        padding: 2px;
+        background: transparent;
+        width: 10px;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        border: 3px solid #1b1c1d;
+        background: var(--var1);
+        border-radius: 5px;
+    }
+}
+
+input:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 1px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    padding: 0.625rem;
+}
+
+input[type="checkbox"]:checked {
+    background:
+        url("data:image/svg+xml,%3Csvg stroke='white' fill='white' stroke-width='0' viewBox='0 0 448 512' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'%3E%3C/path%3E%3C/svg%3E")
+            center no-repeat,
+        #3b82f6;
+}
+
+[popover]:popover-open {
+    position: absolute;
+    inset: unset;
+
+    top: 50%;
+}
+
+.accordion {
+    @apply group-aria-[expanded=false]:border-b-0 group-aria-[expanded=true]:border-b-2;
+
+    border-image: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0)
+        )
+        1;
+}
